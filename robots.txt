@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://lminux.github.io/ordernow-kaiyun-com-cn/sitemap.xml

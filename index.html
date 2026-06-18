@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>开云 · 日常查询与对照指南</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1e1e2a;
+            background: #f5f6fa;
+            line-height: 1.6;
+        }
+
+        .hero {
+            background: linear-gradient(145deg, #0f172a 0%, #1e2a44 100%);
+            color: #f1f5f9;
+            padding: 4rem 2rem 3.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            left: -20px;
+            width: 200px;
+            height: 200px;
+            background: rgba(79, 121, 206, 0.08);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            max-width: 650px;
+            margin: 0 auto;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 4rem;
+        }
+
+        .intro-card {
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+            padding: 2rem 2.2rem;
+            margin-bottom: 2.5rem;
+            border: 1px solid #e9eef3;
+        }
+
+        .intro-card p {
+            font-size: 1.05rem;
+            color: #2c3345;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.8rem;
+            margin: 2.5rem 0;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 1.8rem 1.5rem 2rem;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+            border: 1px solid #edf0f6;
+            transition: transform 0.15s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(20, 30, 60, 0.08);
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            color: #17202e;
+            border-left: 4px solid #4e73c3;
+            padding-left: 0.8rem;
+        }
+
+        .card p {
+            color: #384151;
+            font-size: 0.98rem;
+        }
+
+        .accent-link {
+            color: #2a60b3;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s;
+        }
+
+        .accent-link:hover {
+            border-bottom: 1px solid #2a60b3;
+        }
+
+        .people-section {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2rem 2.2rem;
+            margin: 2.5rem 0;
+            border: 1px solid #e9eef3;
+        }
+
+        .people-section h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            color: #111827;
+        }
+
+        .people-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem 2rem;
+            list-style: none;
+            padding: 0;
+            margin: 0.8rem 0 0.4rem;
+        }
+
+        .people-list li {
+            background: #f0f3fb;
+            padding: 0.4rem 1rem;
+            border-radius: 40px;
+            font-size: 0.95rem;
+            color: #1f2a44;
+        }
+
+        .faq-mini {
+            margin-top: 2.8rem;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 2.2rem 2.2rem;
+            border: 1px solid #e9eef3;
+        }
+
+        .faq-mini h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #111827;
+        }
+
+        .faq-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eef2f8;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 600;
+            color: #1f2a44;
+        }
+
+        .faq-a {
+            color: #3a455b;
+            margin-top: 0.15rem;
+        }
+
+        .note-box {
+            background: #f8faff;
+            border-left: 4px solid #4e73c3;
+            padding: 1.2rem 1.5rem;
+            margin: 2rem 0 0.5rem;
+            border-radius: 0 12px 12px 0;
+            font-size: 0.95rem;
+        }
+
+        .note-box strong {
+            color: #0f1d37;
+        }
+
+        .footer-note {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #6b7280;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 2rem;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 1.5rem 1rem 3rem;
+            }
+
+            .intro-card,
+            .people-section,
+            .faq-mini {
+                padding: 1.5rem 1.2rem;
+            }
+
+            .card {
+                padding: 1.5rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <h1>开云 · 信息对照手册</h1>
+        <p>日常查询、横向比对与延伸阅读 —— 围绕「开云」整理的结构化参考页</p>
+    </header>
+
+    <div class="container">
+
+        <!-- 主视觉卡片 / 总览 -->
+        <div class="intro-card">
+            <p>无论是初次接触还是需要快速回顾，这里将常见的使用场景、功能特征与参考资源集中在一起。你可以把它当作一个起点，在需要对照或延伸阅读时，直接通过下方卡片和链接找到对应内容。所有信息均基于公开资料与常规使用体验整理。</p>
+        </div>
+
+        <!-- 用途卡片区 -->
+        <div class="card-grid">
+            <div class="card">
+                <h3>日常查询</h3>
+                <p>快速检索基础信息、状态更新与常见条目。适合需要频繁核对或临时查找具体细节的场景，节省反复跳转的时间。</p>
+            </div>
+            <div class="card">
+                <h3>横向对照</h3>
+                <p>将不同模块、版本或功能并列展示，方便对比差异。用于选择、评估或理解各环节之间的关联与区别。</p>
+            </div>
+            <div class="card">
+                <h3>延伸阅读</h3>
+                <p>指向更完整的说明、背景介绍或相关讨论。如果你发现当前信息不够用，可以在<a href="https://www.ordernow-kaiyun.com.cn" class="accent-link">开云</a>找到更系统的内容。</p>
+            </div>
+        </div>
+
+        <!-- 适合人群 -->
+        <div class="people-section">
+            <h2>适合谁使用</h2>
+            <p>以下人群可能会觉得这份对照页有帮助：</p>
+            <ul class="people-list">
+                <li>需要定期查询状态的使用者</li>
+                <li>对比不同选项或方案的决策者</li>
+                <li>希望快速了解功能边界的初学者</li>
+                <li>整理资料或撰写说明的编辑者</li>
+                <li>日常依赖<a href="https://www.ordernow-kaiyun.com.cn" class="accent-link">开云</a>进行信息核对的用户</li>
+            </ul>
+            <div class="note-box">
+                <strong>提示：</strong> 页面内容基于常见使用场景归纳，具体细节请以实际界面或最新说明为准。如有出入，建议直接参考对应来源。
+            </div>
+        </div>
+
+        <!-- FAQ 摘要 -->
+        <div class="faq-mini">
+            <h2>常见疑问摘要</h2>
+            <div class="faq-item">
+                <div class="faq-q">Q：这里的内容会频繁更新吗？</div>
+                <div class="faq-a">A：本页为主干参考，重大变动时会同步调整。日常细微变化建议以实时页面为准。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">Q：我可以把这份参考页分享给同事吗？</div>
+                <div class="faq-a">A：可以。本页结构清晰，适合团队内部作为快速入门或对照使用。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">Q：遇到与页面描述不符的情况怎么办？</div>
+                <div class="faq-a">A：优先以实际产品界面为准，同时可以通过<a href="https://www.ordernow-kaiyun.com.cn" class="accent-link">开云</a>获取最新信息。</div>
+            </div>
+        </div>
+
+        <div class="footer-note">
+            <p>本页面为信息卡片式参考页 · 内容基于公开资料整理 · 仅供对照与延伸阅读</p>
+        </div>
+
+    </div>
+
+</body>
+</html>
